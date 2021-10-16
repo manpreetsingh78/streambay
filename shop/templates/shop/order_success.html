@@ -1,0 +1,73 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}Payment Status{%endblock%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+{% block body%}
+{% load static %}
+
+<div class="container my-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Hello Entertainment!</h1>
+        <div class="alert alert-success mt-4" role="alert">
+            You have made the payment<strong> successfully</strong>.
+        </div>
+        <hr class="my-4">
+        <p>You will receive the credentials for premium account(s) purchased by you within next 6 hours through
+            the
+            mail on {{email}}.</p>
+        <a class="btn btn-secondary btn-lg" href="/shop/home" role="button">Continue Shopping »</a>
+    </div>
+    <hr>
+    <h6>Order Id: {{params_dict.razorpay_order_id}}</h6>
+    <h6>Transcation Id: {{params_dict.razorpay_payment_id}}</h6><br>
+    <h6 style="background-color: rgb(255, 255, 191); padding: 10px 10px;" ><b>Take a screenshot of above details,
+     using them track your order in our tracker.</b></h6>
+    <!-- <div class="col-6 md-3"></div> -->
+    <hr>
+    <b><u><h5 style="font-family: 'Ubuntu Condensed', sans-serif;  ">Rules to follow for Netflix:</h5></u></b>
+    <br>
+    <div class="row" style="font-family: 'Ubuntu Condensed', sans-serif;  ">
+        <div class="col-md-5">
+            <dl>
+                <dt>Android:</dt>
+                <dd> 1) Clear Cache and Cookies of Chrome/Browser (Kindly google the instructions for your specific device)</dd>
+                <dd> 2) Clear data of Netflix App.  Settings > App Management > Netflix > Clear data</dd>
+                <dd> 3) After that uninstall Netflix. (remove Google Smart Lock if you have it installed)</dd>
+                <dd> 4) Restart your phone ! </dd>
+                <dd> 5) Then install Netflix and use the Netflix id provided ! </dd><br>
+                <dt>IOS/iPhone/iPad: </dt>
+                <dd> 1) Uninstall netflix app</dd>
+                <dd> 2) Go to Settings > Safari > Clear History and Website Data</dd>
+                <dd> 3) Restart device</dd>
+                <dd> 4) Use netflix id provided</dd><br>
+            </dl></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <dl>
+                <dt>PC:</dt>
+                <dd> 1) Clear Cache History </dd>
+                <dd> 2) Close Browser</dd>
+                <dd> 3) Open Browser</dd>
+                <dd> 4) Use the Netflix id provided ! </dd><br>
+                <dt>TV:</dt>
+                <dd> Reset TV Before logging in.</dd>
+            </dl>
+            <br></div>
+            <div>
+            <b><u><h5>No replacement in following cases:</h5></u></br>
+            <ul>
+                <li>Email is changed.</li>
+                <li>Used on more than 4 device</li>
+            </ul>
+        </div></div>
+    </div>
+</div>
+
+{%endblock%}
+{% block js%}
+<script>
+    localStorage.clear()
+</script>
+{%endblock%}

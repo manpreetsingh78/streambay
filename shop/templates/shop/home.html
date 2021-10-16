@@ -1,0 +1,707 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}Home{%endblock%}
+
+{% block css%}
+<style>
+    @media only screen and (max-width: 600px) {
+        #viewim{
+            height: 50vh;
+        }
+    
+    }
+    @media only screen and (min-width: 600px) {
+        #viewim{
+            height: 95vh;
+        }
+    
+    }
+    body {
+        background-color: #121314;
+        margin: 0px 0px;
+        color: azure;
+
+    }
+    .lists{
+        list-style: circle;
+        font-family: 'Ubuntu Condensed', sans-serif;;
+    }
+
+    span1 {
+        float: right;
+    }
+    span2 {
+        float: right;
+        text-align: left;
+    }
+    span3 hr{
+        border-color:rgb(190, 190, 190);
+    }
+
+    hr {
+        border-color: rgb(83, 83, 83);
+    }
+    hr.new1 {
+        border-color: rgb(83, 83, 83);
+    }
+
+    .container1 {
+        position: relative;
+        text-align: center;
+        color: rgb(255, 255, 255);
+
+
+    }
+
+    .container1 h1 {
+        font-size: 50px;
+    }
+
+    .centered1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif
+    }
+
+    hr.divi {
+        border-color: azure;
+    }
+
+    .popover {
+        width: 100%;
+        background-color: rgb(247, 247, 247);
+    }
+</style>
+
+{%endblock%}
+{% block home%}active {%endblock%}
+{% block body%}
+{% load static %}
+<div class="container-fluid ">
+    <div class="container1">
+        <img class="center-fit" id="viewim" {% load static %} src="{% static '/shop/title3.jpg' %}"
+            style="width: 100%;">
+        <div class="centered1">
+            <div class="container">
+                <h1><strong><span id="typed"></strong></span></h1>
+
+                <p>
+                    <script type="text/javascript">
+                        var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
+                        var wordCount = document.getElementById("wordCount");
+
+                        exampleFormControlTextarea1.addEventListener("keyup", function () {
+                            var characters = exampleFormControlTextarea1.value.split('');
+                            wordCount.innerText = characters.length;
+                        });
+                    </script>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var typed = new Typed('#typed', {
+            strings: ["Netflix", "Amazon Prime", "Youtube Premium", "Hotstar", "Spotify", "Zee5", "AltBalaji", "Nord-VPN", "Windscribe-VPN", "Sony LIV", "VOOT", "Apple Music","Eros Now", "Crunchyroll","Vypr VPN","HMA VPN"],
+            backSpeed: 15,
+            smartBackspace: true,
+            backDelay: 1200,
+            startDelay: 1000,
+            typeSpeed: 25,
+            loop: true,
+
+        });
+    </script>
+</div>
+
+
+
+<div class="container my-2">
+    <hr class="divi">
+    <h4><strong>Yearly Plans</strong></h4>
+    <hr class="divi">
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/NetflixYearly.png' %}" class="card-img-top" alt="Netflix" id="netflixy">
+            <div class="card-body">
+                <h5 id="namepr{{product.0.id}}" class="card-title">{{product.0.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>4 Screens</li>
+                    <li>Ultra HD</li>
+                    <li>Unlimited movies and TV shows</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.0.id}}">{{product.0.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.0.id}}" class="divpr">
+                    <button id="pr{{product.0.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/prime1.png' %}" class="card-img-top" alt="Amazon Prime" id="amazony">
+            <div class="card-body">
+                <h5 id="namepr{{product.1.id}}" class="card-title">{{product.1.product_name}}</h5>
+                <p class="card-text"></p><ul class="lists">
+                    <li>Great Entertainment</li>
+                    <li>Watch anywhere</li>
+                    <li>Account works for Prime Videos Only</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.1.id}}">{{product.1.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.1.id}}" class="divpr">
+                    <button id="pr{{product.1.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/Youtube.png' %}" class="card-img-top" alt="Youtube Premium" id="yty">
+            <div class="card-body">
+                <h5 id="namepr{{product.2.id}}" class="card-title">{{product.2.product_name}}</h5>
+                <p class="card-text"></p><ul class="lists">
+                    <li>Ad-free & background play</li>
+                    <li>Downloads</li>
+                    <li>Access to Youtube Originals</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.2.id}}">{{product.2.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.2.id}}" class="divpr">
+                    <button id="pr{{product.2.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/hotstarprem.png' %}" class="card-img-top" alt="Hotstar Premium" id="htpremy">
+            <div class="card-body">
+                <h5 id="namepr{{product.3.id}}" class="card-title">{{product.3.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Disney+: Disney+ Originals, Shows & Movies</li>
+                    <li>Latest American Shows & movies</li>
+                    <li>Live Sports (Cricket, Premier League..)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.3.id}}">{{product.3.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.3.id}}" class="divpr">
+                    <button id="pr{{product.3.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/hotstarvip.png' %}" class="card-img-top" alt="Hotstar VIP" id="htvipy">
+            <div class="card-body">
+                <h5 id="namepr{{product.4.id}}" class="card-title">{{product.4.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Disney+: Shows, Movies(dubbed)</li>
+                    <li>Exclusive Hotstar Specials</li>
+                    <li>Live Sports (Cricket, Premier League..)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.4.id}}">{{product.4.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.4.id}}" class="divpr">
+                    <button id="pr{{product.4.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/windvpn.png' %}" class="card-img-top" alt="Windscribe-VPN" id="windscribey">
+            <div class="card-body">
+                <h5 id="namepr{{product.5.id}}" class="card-title">{{product.5.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Secure Downloading</li>
+                    <li>Fast Streaming</li>
+                    <li>Hide IP address</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.5.id}}">{{product.5.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.5.id}}" class="divpr">
+                    <button id="pr{{product.5.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <hr class="divi">
+
+    <h4><strong>Monthly Plans</strong></h4>
+    <hr class="divi">
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/NetflixMonthly2.png' %}" class="card-img-top" alt="Netflix" style="height: 232px;" id="netflixm">
+            <div class="card-body">
+                <h5 id="namepr{{product.6.id}}" class="card-title">{{product.6.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>4 Screens</li>
+                    <li>Ultra HD</li>
+                    <li>Unlimited movies and TV shows</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.6.id}}">{{product.6.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.6.id}}" class="divpr">
+                    <button id="pr{{product.6.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/primemonthly.png' %}" class="card-img-top" alt="Amazon Prime" id="amazonm">
+            <div class="card-body">
+                <h5 id="namepr{{product.7.id}}" class="card-title">{{product.7.product_name}}</h5>
+                <p class="card-text"></p><ul class="lists">
+                    <li>Great Entertainment</li>
+                    <li>Watch anywhere</li>
+                    <li>Account works for Prime Videos Only</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.7.id}}">{{product.7.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.7.id}}" class="divpr">
+                    <button id="pr{{product.7.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/yt1.png' %}" class="card-img-top" alt="Youtube Premium" id="ytm">
+            <div class="card-body">
+                <h5 id="namepr{{product.8.id}}" class="card-title">{{product.8.product_name}}</h5>
+                <p class="card-text"></p><ul class="lists">
+                    <li>Ad-free & background play</li>
+                    <li>Downloads</li>
+                    <li>Access to Youtube Originals</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.8.id}}">{{product.8.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.8.id}}" class="divpr">
+                    <button id="pr{{product.8.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/spotifyN3.png' %}" class="card-img-top" alt="Spotify" id="spotifym">
+            <div class="card-body">
+                <h5 id="namepr{{product.9.id}}" class="card-title">{{product.9.product_name}}</h5>
+                <p class="card-text"></p><ul class="lists">
+                    <li>No interruptions</li>
+                    <li>Offline playback</li>
+                    <li>Play Spotify everywhere(Speaker,TV & Other)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.9.id}}">{{product.9.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.9.id}}" class="divpr">
+                    <button id="pr{{product.9.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/hotstarprem.png' %}" class="card-img-top" alt="Hotstar Premium" id="htpremm">
+            <div class="card-body">
+                <h5 id="namepr{{product.10.id}}" class="card-title">{{product.10.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Disney+: Disney+ Originals, Shows & Movies</li>
+                    <li>Latest American Shows & movies</li>
+                    <li>Live Sports (Cricket, Premier League..)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.10.id}}">{{product.10.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.10.id}}" class="divpr">
+                    <button id="pr{{product.10.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/hotstarvip.png' %}" class="card-img-top" alt="Hotstar VIP" id="htvipm">
+            <div class="card-body">
+                <h5 id="namepr{{product.11.id}}" class="card-title">{{product.11.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Disney+: Shows, Movies(dubbed)</li>
+                    <li>Exclusive Hotstar Specials</li>
+                    <li>Live Sports (Cricket, Premier League..)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.11.id}}">{{product.11.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.11.id}}" class="divpr">
+                    <button id="pr{{product.11.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/zee5.png' %}" class="card-img-top" alt="Zee5" id="zeemonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.12.id}}" class="card-title">{{product.12.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>90+ TV Channels</li>
+                    <li>ZEE5 Originals</li>
+                    <li>Unlimited movies and TV shows</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.12.id}}">{{product.12.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.12.id}}" class="divpr">
+                    <button id="pr{{product.12.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/sonyliv.png' %}" class="card-img-top" alt="Sony LIV" id="sonymonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.13.id}}" class="card-title">{{product.13.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Latest International Shows</li>
+                    <li>All LIVE Sports</li>
+                    <li>All LIVE TV Channels</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.13.id}}">{{product.13.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.13.id}}" class="divpr">
+                    <button id="pr{{product.13.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/voot.png' %}" class="card-img-top" alt="VOOT" id="vootmonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.14.id}}" class="card-title">{{product.14.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Ad-free Experience</li>
+                    <li>24 Hours Before TV</li>
+                    <li>Top-rated Originals like Asur and Illegal</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.14.id}}">{{product.14.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.14.id}}" class="divpr">
+                    <button id="pr{{product.14.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/appleMusic.png' %}" class="card-img-top" alt="Apple Music" style="height: 232px;" id="applemonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.15.id}}" class="card-title">{{product.15.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>60 million songs</li>
+                    <li>Download your favourite tracks. </li>
+                    <li>Get exclusive and original content</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.15.id}}">{{product.15.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.15.id}}" class="divpr">
+                    <button id="pr{{product.15.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/crunchyroll.png' %}" class="card-img-top" alt="Crunchyroll" style="height: 232px;" id="crunchyrollmonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.16.id}}" class="card-title">{{product.16.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Access all ANIME & MANGA</li>
+                    <li>Watch AD-Free in HD</li>
+                    <li>Simulcasts fresh from JAPAN</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.16.id}}">{{product.16.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.16.id}}" class="divpr">
+                    <button id="pr{{product.16.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/ErosNow.png' %}" class="card-img-top" alt="ErosNow" id="erosmonthly">
+            <div class="card-body">
+                <h5 id="namepr{{product.17.id}}" class="card-title">{{product.17.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Bollywood's biggest movie collection</li>
+                    <li>Ultra HD</li>
+                    <li>Exclusive Access to Originals</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.17.id}}">{{product.17.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.17.id}}" class="divpr">
+                    <button id="pr{{product.17.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/nord.png' %}" class="card-img-top" alt="Nord-VPN" id="nordm">
+            <div class="card-body">
+                <h5 id="namepr{{product.18.id}}" class="card-title">{{product.18.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Strict No-logs policy</li>
+                    <li>1 click IP masking</li>
+                    <li>VPN servers everywhere</li>
+                    <br>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.18.id}}">{{product.18.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.18.id}}" class="divpr">
+                    <button id="pr{{product.18.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/windvpn.png' %}" class="card-img-top" alt="Windscribe-VPN" id="windscribem">
+            <div class="card-body">
+                <h5 id="namepr{{product.19.id}}" class="card-title">{{product.19.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Secure Downloading</li>
+                    <li>Fast Streaming</li>
+                    <li>Hide IP address</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.19.id}}">{{product.19.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.19.id}}" class="divpr">
+                    <button id="pr{{product.19.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/express.png' %}" class="card-img-top" alt="Express-VPN" id="expressm">
+            <div class="card-body">
+                <h5 id="namepr{{product.20.id}}" class="card-title">{{product.20.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Super fast & ultra secure</li>
+                    <li>Great for HD/4K streaming</li>
+                    <li>Change your IP to 160 locations in 94 countries</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.20.id}}">{{product.20.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.20.id}}" class="divpr">
+                    <button id="pr{{product.20.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card-deck">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/vyprvpn.png' %}" class="card-img-top" alt="VyprVPN" id="vyprm">
+            <div class="card-body">
+                <h5 id="namepr{{product.21.id}}" class="card-title">{{product.21.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Apps for All Devices</li>
+                    <li>70+ Global Server Locations</li>
+                    <li>Unlimited High-speed Bandwidth</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.21.id}}">{{product.21.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.21.id}}" class="divpr">
+                    <button id="pr{{product.21.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/hmavpn.png' %}" class="card-img-top" alt="HMA VPN" id="hmam">
+            <div class="card-body">
+                <h5 id="namepr{{product.22.id}}" class="card-title">{{product.22.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>Blazing fast servers</li>
+                    <li>Smart Kill Switch</li>
+                    <li>Leak Shield</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.22.id}}">{{product.22.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.22.id}}" class="divpr">
+                    <button id="pr{{product.22.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+            <img src="{% static '/shop/netflixno.png' %}" class="card-img-top" alt="Netflix" id="netflixno">
+            <div class="card-body">
+                <h5 id="namepr{{product.23.id}}" class="card-title">{{product.23.product_name}}</h5>
+                <p class="card-text"><ul class="lists">
+                    <li>4 Screens</li>
+                    <li>Ultra HD</li>
+                    <li>No Replacement (Works for ~12-15 days)</li>
+                </ul></p>
+                <h6 class="card-title">Price: ₹ <span id="pricepr{{product.23.id}}">{{product.23.price}}</span></h6>
+                <hr>
+                <span id="divpr{{product.23.id}}" class="divpr">
+                    <button id="pr{{product.23.id}}" class="btn btn-outline-light cart">Add to Cart</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+</div>
+{%endblock%}
+
+
+{%block cart%}
+<button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-sanitize="false" data-content="Basic page">
+    Cart(<span id="cart{%block N%}{%endblock%}">0</span>)
+</button>
+{%endblock%}
+
+
+{% block js %}
+<script>
+    console.log('working')
+
+    // Find out the cart items from localStorage
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        // document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        updateCart(cart);
+    }
+
+    // If the add to cart button is clicked, add/increment the item
+    // $('.cart').click(function(){
+    $('.divpr').on('click', 'button.cart', function () {
+        console.log('clicked');
+        var idstr = this.id.toString();
+        console.log(idstr);
+        if (cart[idstr] != undefined) {
+            qty = cart[idstr][0] + 1;
+        }
+        else {
+            qty = 1;
+            name = document.getElementById('name' + idstr).innerHTML;
+            price = document.getElementById('price' + idstr).innerHTML;
+            cart[idstr] = [qty, name, parseInt(price)];
+        }
+        console.log(cart);
+        updateCart(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    });
+
+    //Add Popover to cart
+    // $('#popcart').popover('disable');
+    $('#popcart').popover('hide');
+    // document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for Your items in shopping cart</h5>');
+    // document.getElementById('popcart').setAttribute('data-content', '<h5>Cart</h5');
+    updatePopover(cart);
+    function updatePopover(cart) {
+        console.log('We are inside updatePopover');
+        var popStr = "";
+        popStr = popStr + "<h5></h5><div class='mx-2 my-2'>";
+        var totalcost = 0;
+        var i = 1;
+        for (var item in cart) {
+            popStr = popStr + "<b>&nbsp;&nbsp;" + i + ". ";
+            // popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 15) + "</b></h6>&nbsp;&nbsp;&nbsp;&nbsp; Price: ₹" + cart[item][2] + "</br>" + "&nbsp;&nbsp;&nbsp;&nbsp;  Quantity: " + cart[item][0] + "<br><b>&nbsp;&nbsp;&nbsp;&nbsp;  Total Price: " + cart[item][0] * cart[item][2] + "</b></p>";
+            
+            popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 15) + "</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<small> Price: ₹" + cart[item][2] + "&nbsp;&nbsp;&nbsp;&nbsp;<span2>  Quantity: " + cart[item][0] + "</span2><br><b>&nbsp;&nbsp;&nbsp;&nbsp; Total Price: &nbsp;₹" + cart[item][0] * cart[item][2] + "</b></small><span3><hr></span3>";
+            
+            
+            totalcost = totalcost + cart[item][0] * cart[item][2];
+            i = i + 1;
+
+        }
+        console.log(totalcost);
+
+        popStr = popStr + "</div><h6>&nbsp;&nbsp;&nbsp;&nbsp;<b>Total: <span1>    ₹ " + totalcost + "</span1></h6>  </b>"
+        popStr = popStr + "<a href='/shop/checkout'><button class='btn btn-dark btn-block mt-3' id ='checkout'>CHECKOUT</button></a> <button class='btn btn-outline-dark btn-block mt-2' onclick='clearCart()' id ='clearCart'>CLEAR CART</button>     "
+        console.log(popStr);
+        document.getElementById('popcart').setAttribute('data-content', popStr);
+        $('#popcart').popover('show');
+
+    }
+    $(window).on( "load", function() {
+        console.log("Inside");
+        $('#popcart').popover('hide');
+    });
+    
+
+    function clearCart() {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        for (var item in cart) {
+            document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-outline-light cart">Add To Cart</button>'
+        }
+        localStorage.clear();
+        cart = {};
+        updateCart(cart);
+    }
+
+
+    function updateCart(cart) {
+        var sum = 0;
+        console.log(cart);
+        for (var item in cart) {
+            sum = sum + cart[item][0];
+            document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-light minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-light plus'> + </button>";
+
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = sum;
+        console.log(cart);
+        updatePopover(cart);
+    }
+
+    // If plus or minus button is clicked, change the cart as well as the display value
+    $('.divpr').on("click", "button.minus", function () {
+        console.log("minus clicked");
+
+        a = this.id.slice(7,);
+        cart['pr' + a][0] = cart['pr' + a][0] - 1;
+        cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+        if (cart['pr' + a][0] == 0) {
+            document.getElementById('divpr' + a).innerHTML = '<button id="pr' + a + '" class="btn btn-outline-light cart">Add to Cart</button>';
+            delete cart['pr' + a];
+        }
+        else {
+            document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+        }
+        updateCart(cart);
+
+    });
+
+    $('.divpr').on("click", "button.plus", function () {
+        console.log("plus clicked");
+        a = this.id.slice(6,);
+        cart['pr' + a][0] = cart['pr' + a][0] + 1;
+        cart['pr' + a][0] = Math.min(10, cart['pr' + a][0]);
+        document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+        updateCart(cart);
+    });
+
+    $('#popcart').popover({
+        html: true,
+        title: 'Popover Title<a class="close" href="#");">&times;</a>',
+        content: $('#popoverContent').html(),
+    });
+
+    $('#popcart').click(function (e) {
+        e.stopPropagation();
+    });
+
+    $(document).click(function (e) {
+        if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+            $('#popcart').popover('hide');
+        }
+    });
+
+
+</script>
+{%endblock%}

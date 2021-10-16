@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% load static %}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static '/shop/css/navbar.css' %}">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
+  <!-- integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static '/shop/logo4.PNG' %}">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+  <title>{%block title %} {%endblock%}</title>
+  <!-- <meta name="keywords" content="Multi level hover dropdown Navbar for bootstrap 4"> -->
+  <style>
+    .container12 {
+      margin: 0px;
+      padding-top: 40px;
+      padding-bottom: 20px;
+      background-color: #343a40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 15vh;
+      /* text-align: center; */
+
+    }
+
+    .container121 {
+      background-color: #343a40;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0px;
+      padding-bottom: 25px;
+
+    }
+
+    .container121 ul li {
+      display: inline;
+      margin: 0px 10px;
+    }
+
+    .container121 a {
+
+      font-size: 11px;
+      align-items: left;
+      color: azure;
+      justify-content: left;
+      align-self: baseline;
+    }
+
+
+
+    .container12 .sm a {
+      margin: 0 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 15px;
+      box-shadow: 6px 6px 12px rgba(0, 0, 0, .15),
+        -6px -6px 12px rgba(255, 255, 255, .1);
+      overflow: hidden;
+      font-size: 25px;
+      transition: .3s linear;
+      position: relative;
+    }
+
+    .container12 .sm a:hover {
+      transform: scale(1.3);
+      border-radius: 50%;
+    }
+
+    .container12 .sm a i::before {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      background-size: 200% 200%;
+      background-position: 75% 75%;
+      top: 0;
+      left: 0;
+      line-height: 55px;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* transition: background .5s linear; */
+    }
+
+    .container12 .sm a:hover i::before {
+      background-position: 0% 0%;
+    }
+
+    .fa-facebook-f::before {
+      background-image: linear-gradient(135deg, #3b5998 30%, #0a3d62 50%);
+    }
+
+    .fa-twitter::before {
+      background-image: linear-gradient(135deg, #1da1f2 30%, #0a3d62 50%);
+    }
+
+    .fa-instagram::before {
+      background-image: linear-gradient(135deg, #c32aa3 30%, #0a3d62 50%);
+    }
+
+    .fa-youtube::before {
+      background-image: linear-gradient(135deg, #d71e18 30%, #0a3d62 50%);
+    }
+
+    .fa-linkedin-in::before {
+      background-image: linear-gradient(135deg, #007bb5 30%, #0a3d62 50%);
+    }
+
+    .fa-telegram::before {
+      background-image: linear-gradient(135deg, #007bb5 30%, #0a3d62 50%);
+    }
+  </style>
+  {% block css %} {%endblock%}
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" id="main_navbar">
+
+    <a class="navbar-brand" href="/shop/home" style="font-family: 'Spectral SC', serif;"><img
+        src="{% static '/shop/StreamBay.png' %}" width="180" height="35" class="d-inline-block align-top mx-3" alt=""
+        loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% block home%} {%endblock%}">
+          <a class="nav-link" href="/shop/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item {% block about%} {%endblock%}">
+          <a class="nav-link" href="/shop/about">About Us</a>
+        </li>
+        <!-- <li class="nav-item ">
+          <a class="nav-link" href="/shop/tracker">Track Your Order</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item dropdown">
+              <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Yearly Plans
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <li><a class="dropdown-item" href="/shop/home#netflixy">Netflix</a></li>
+                <li><a class="dropdown-item" href="/shop/home#amazony">Amazon Prime</a></li>
+                <li><a class="dropdown-item" href="/shop/home#yty">Youtube Premium</a></li>
+                <li><a class="dropdown-item" href="/shop/home#htpremy">Hotstar Premium</a></li>
+                <li><a class="dropdown-item" href="/shop/home#htvipy">Hotstar VIP</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="/shop/home#windscribey">Windscribe VPN</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Monthly Plans
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <li><a class="dropdown-item" href="/shop/home#netflixm">Netflix</a></li>
+                <li><a class="dropdown-item" href="/shop/home#amazonm">Amazon Prime</a></li>
+                <li><a class="dropdown-item" href="/shop/home#ytm">Youtube Premium</a></li>
+                <li class="nav-item dropdown">
+                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hotstar
+                  </a>
+                  <ul class="dropdown-menu left" aria-labelledby="navbarDropdown2">
+                    <li><a class="dropdown-item" href="/shop/home#htpremm">Hotstar Premium</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#htvipm">Hotstar VIP</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Music
+                  </a>
+                  <ul class="dropdown-menu left" aria-labelledby="navbarDropdown2">
+                    <li><a class="dropdown-item" href="/shop/home#spotifym">Spotify</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#applemonthly">Apple Music</a></li>
+                  </ul>
+                </li>
+                <!-- <li><a class="dropdown-item" href="/shop/home#">Spotify</a></li> -->
+                <li class="nav-item dropdown">
+                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other Indian Platforms
+                  </a>
+                  <ul class="dropdown-menu left" aria-labelledby="navbarDropdown2">
+                    <li><a class="dropdown-item" href="/shop/home#zeemonthly">Zee5</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#sonymonthly">Sony LIV</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#vootmonthly">Voot</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#erosmonthly">Eros Now</a></li>
+                  </ul>
+                </li>
+
+                <!-- <li><a class="dropdown-item" href="/shop/home#">Apple Music</a></li> -->
+                <li><a class="dropdown-item" href="/shop/home#crunchyrollmonthly">Crunchyroll</a></li>
+                <!-- <div class="dropdown-divider"></div> -->
+                <li><a class="dropdown-item" href="/shop/home#netflixno">Netflix (No Warranty)</a></li>
+                <div class="dropdown-divider"></div>
+                <li class="nav-item dropdown">
+                  <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    VPNs
+                  </a>
+                  <ul class="dropdown-menu left" aria-labelledby="navbarDropdown2">
+                    <li><a class="dropdown-item" href="/shop/home#windscribem">Windscribe VPN</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#nordm">Nord VPN</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#expressm">Express VPN</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#vyprm">Vypr VPN</a></li>
+                    <li><a class="dropdown-item" href="/shop/home#hmam">HMA VPN</a></li>
+                  </ul>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                         aria-haspopup="true" aria-expanded="false">
+                        Left Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <div class="dropdown-divider"></div>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li> -->
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item {% block tracker%} {%endblock%}">
+          <a class="nav-link" href="/shop/tracker">Track Your Order</a>
+        </li>
+        <li class="nav-item {% block contact%} {%endblock%}">
+          <a class="nav-link " href="/shop/contact">Support</a>
+        </li>
+      </ul>
+      {%block cart%}{%endblock%}
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id = "search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+      <!-- <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-sanitize="false" data-content="Basic page">
+        Cart(<span id="cart{%block N%}{%endblock%}">0</span>)
+      </button> -->
+    </div>
+  </nav>
+
+
+  {%block body%} {%endblock%}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="{% static '/shop/css/navbar.js' %}"></script>
+  <script>
+    $(function () {
+      $('#main_navbar').bootnavbar({
+        //option
+        //animation: false
+      });
+    })
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script> -->
+
+  {% block js%}
+  {%endblock%}
+  <!-- <div class="footer"> -->
+  <div class="container12">
+    <hr>
+    <p class="col-3" style="color: azure; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">©
+      2020-2021
+      &nbsp;StreamBay <br>
+      <!-- <a href="/shop/privacy" target="blank">Privacy Policy </a><br>
+        <a href="/shop/terms" target="blank">Terms of Service </a><br>
+        <a href="/shop/refund" target="blank">Refund Policy </a> -->
+    </p>
+    <div class="col-6" style="padding-left: 0px;">
+      <div class="sm">
+        <a href="https://www.facebook.com/StreamBay-108544220970676/" target="_blank"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/Streambay1?s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/streambay_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- <a href="#"><i class="fab fa-youtube"></i></a> -->
+        <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+        <a href="https://t.me/streambay" target="_blank"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+    <div class="col-3" style="font-family: 'Ubuntu', sans-serif; color: azure;">
+      <!-- <a href="/shop/replacement">
+        <button class="btn btn-secondary">Replacement | Reset</button></a> -->
+      <!-- <a href="/shop/replacement"><br><br>
+        <button class="btn btn-secondary">Reset</button></a> -->
+    </div>
+    <!-- <div class="row"> -->
+
+    <!-- </div> -->
+  </div>
+  <div class="container121">
+    <ul>
+      <li><a href="" target="_blank">Privacy Policy</a></li>
+      <li><a href="" target="_blank">Terms of Service</a></li>
+      <li><a href="" target="_blank">Replacement Policy</a></li>
+    </ul>
+    <p style="font-family: 'Ubuntu', sans-serif; font-size: medium; color: azure;">Having any kind of issue with account
+      provided to you? Contact our <a href="/shop/contact" target="_blank" style="font-size: medium;"><u>Support
+          Team</u></a></p>
+  </div>
+
+
+</body>
+
+</html>

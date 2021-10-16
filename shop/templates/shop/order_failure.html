@@ -1,0 +1,22 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %}Payment Status{%endblock%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+{% block body%}
+{% load static %}
+
+<div class="container my-4">
+    <div class="jumbotron">
+        <div class="alert alert-danger mt-4" role="alert">
+            Transaction <strong> failed</strong>. Try again to make the payment and start your journey of entertainment.
+        </div>
+        <hr class="my-4">
+        <p>Let's get back and buy some premium accounts for you.</p>
+        <a class="btn btn-secondary btn-lg" href="shop/home" role="button">Continue Shopping »</a>
+    </div>
+</div>
+    <br>
+    <br>
+{%endblock%}
