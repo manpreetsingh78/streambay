@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
-from PayTm import Checksum
+# from PayTm import Checksum
 MERCHANT_KEY= 'fcZNMtm!Ms1k45hb'
 # MERCHANT_KEY= '5LO0BQOd3abbAn9v'
 # Create your views here.
